@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bruno's Hotel</title>
+  <style>
+    :root {
+      --main-color: #9262be;
+      --light-bg: #f5f2fa;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--light-bg);
+      color: #333;
+    }
+
+    nav {
+      background-color: var(--main-color);
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      position: relative;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(to right, #9262be, #aa7edd);
+      color: white;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+    }
+
+    h2.section-title {
+      position: absolute;
+      top: -30px;
+      left: 20px;
+      background-color: var(--main-color);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 20px;
+      margin: 0;
+      z-index: 2;
+    }
+
+    .white-section {
+      background-color: white;
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: 100px auto 60px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .room-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .room-card {
+      flex: 1 1 200px;
+      max-width: 300px;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      background-color: white;
+    }
+
+    .room-card.selected {
+      border: 2px solid var(--main-color);
+      transform: scale(1.02);
+    }
+
+    .room-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .room-card-label {
+      padding: 15px;
+      text-align: center;
+      background-color: #fff;
+      font-weight: bold;
+    }
+
+    form {
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: var(--main-color);
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #7d4fab;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #eee;
+    }
+
+    .services-board {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .services-board h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .services-board h2 {
+      text-align: center;
+      color: #444;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    .section h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #222;
+      text-transform: uppercase;
+    }
+
+    .section ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .section ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .footer .section {
+      flex: 1;
+      min-width: 250px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Bruno's Hotel</div>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#Services">Services</a>
+      <a href="#about">About</a>
+      <a href="#bookings">Booking</a>
+      <a href="#activities">Activities</a>
+      <a href="#rules">Rules</a>
+    </div>
+  </nav>
+
+  <section id="home" class="hero">
+    <h1>Welcome to Bruno's Hotel</h1>
+    <p>Luxury, comfort, and unforgettable Roblox experiences await you.</p>
+  </section>
+
+  <section id="about" class="white-section">
+    <h2 class="section-title">About</h2>
+    <p style="text-align: center; max-width: 700px; margin: auto;">
+      Bruno's Hotel offers a premium Roblox roleplay experience with modern rooms, fun activities, and an active community. 
+      Whether you're relaxing in your Suite or socializing in the lounge, it's always a good time at Bruno's!
+    </p>
+  </section>
+
+  <section id="rules" class="white-section">
+    <h2 class="section-title">Rules</h2>
+    <div style="text-align: center; margin-bottom: 30px;">
+    </div>
+    <div style="max-width: 800px; margin: auto; text-align: left;">
+      <h3>Check-In & Check-Out:</h3>
+      <ul>
+        <li>Guests must check in during designated hours.</li>
+        <li>Check-out time is <strong>11:00 AM</strong>. Please leave the room on time.</li>
+      </ul>
+
+      <h3>Room Behavior:</h3>
+      <ul>
+        <li>Keep rooms clean and tidy. No damaging furniture or decorations.</li>
+        <li>Respect the privacy of other guests.</li>
+      </ul>
+
+      <h3>No Refund Policy:</h3>
+      <ul>
+        <li>All payments are final. No refunds will be given for cancellations or early checkouts.</li>
+      </ul>
+
+      <h3>Common Areas:</h3>
+      <ul>
+        <li>Be respectful of shared spaces. Keep noise levels low.</li>
+        <li>No disruptive behavior in the lobby, pool, or other amenities.</li>
+      </ul>
+
+      <p style="color: rgb(46, 46, 42); font-weight: bold;">NOTE: If any of these rules are broken, you will be kicked out or banned from the plot without explanation.</p>
+    </div>
+  </section>
+
+  <section id="activities" class="white-section">
+    <h2 class="section-title">Activities</h2>
+    <p style="text-align: center; max-width: 700px; margin: auto;">
+      Enjoy dance parties, pool games, sauna days, karaoke nights, and more! Bruno's Hotel provides regular events to keep your stay exciting.
+    </p>
+</div>
+    </p>
+  </section>
+
+  <section id="Services">
+    <div class="services-board">
+      <h1>Bruno's Hotel</h1>
+      <h2>Services</h2>
+      <div class="grid">
+        <div class="section">
+          <h3>Rooms</h3>
+          <ul>
+            <li>Single Suite [Basic] – $250 / night</li>
+            <li>Single Suite [Premium] – $350 / night</li>
+            <li>Double Suite – $550 / night</li>
+            <li>President Suite – $750 / night</li>
+          </ul><br/>
+          <ul>
+            <li>001–007 [Ground Floor] – Basic</li>
+            <li>301–307 [3rd Floor] – Premium & Double</li>
+            <li>401–407 [4th Floor] – Premium & Double</li>
+            <li>501–504 [5th Floor] – President</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>Extras</h3>
+          <ul>
+            <li>Breakfast – $20 / day</li>
+            <li>Room Service – $10</li>
+            <li>Sauna – $50 / day</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="section">
+          <h3>Our Activities</h3>
+          <ul>
+            <li>Outdoor Pool – 1st Floor</li>
+            <li>Sauna – 3rd Floor</li>
+            <li>Cinema – 4th Floor</li>
+            <li>Gym – 5th Floor</li>
+          </ul>
+        </div>
+        <div class="section">
+          <h3>Work Time</h3>
+          <ul>
+            <li>24/7 – General Access</li>
+            <li>Sauna – 8:30 AM to 10:00 PM</li>
+            <li>Cinema – 8:30 AM to 11:30 PM</li>
+            <li>Gym – 24/7</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bookings" class="white-section">
+    <h2 class="section-title">Booking</h2>
+    <form id="bookingForm">
+      <input name="name" placeholder="Your Full Name" required />
+      <input name="roblox" placeholder="Roblox Username" required />
+   <div class="room-options">
+    <div class="room-card" onclick="selectRoom(this, 'Single Suite Basic')">
+      <img src="https://cdn.glitch.global/a569fec7-326b-43f1-835b-c265f9c4e640/thumbnails%2FScreenshot%202025-05-16%20175955.png?1747407964294" />
+      <img class="alt" src="https://cdn.glitch.global/a569fec7-326b-43f1-835b-c265f9c4e640/thumbnails%2FScreenshot%202025-05-16%20180104.png?1747407977521" />
+      <div class="room-card-label">Single Suite Basic</div>
+    </div>
+
+    <div class="room-card" onclick="selectRoom(this, 'Single Suite Premium')">
+      <img src="https://cdn.glitch.global/a569fec7-326b-43f1-835b-c265f9c4e640/thumbnails%2FScreenshot%202025-05-16%20181221.png?1747408440079" />
+      <img class="alt" src="https://cdn.glitch.global/a569fec7-326b-43f1-835b-c265f9c4e640/thumbnails%2FScreenshot%202025-05-16%20181256.png?1747408450492" />
+      <div class="room-card-label">Single Suite Premium</div>
+    </div>
+
+    <div class="room-card" onclick="selectRoom(this, 'Double Suite')">
+      <img src="https://cdn.glitch.global/a569fec7-326b-43f1-835b-c265f9c4e640/thumbnails%2FScreenshot%202025-05-16%20181142.png?1747408427313" />
+      <img class="alt" src="https://cdn.glitch.global/a569fec7-326b-43f1-835b-c265f9c4e640/thumbnails%2FScreenshot%202025-05-16%20180104.png?1747407977521" />
+      <div class="room-card-label">Double Suite</div>
+    </div>
+
+    <div class="room-card" onclick="selectRoom(this, 'Familly Suite')">
+      <img src="https://cdn.glitch.global/a569fec7-326b-43f1-835b-c265f9c4e640/thumbnails%2FScreenshot%202025-05-16%20181320.png?1747408459681" />
+      <img class="alt" src="https://cdn.glitch.global/a569fec7-326b-43f1-835b-c265f9c4e640/thumbnails%2FScreenshot%202025-05-16%20180104.png?1747407977521" />
+      <div class="room-card-label">Familly Suite</div>
+    </div>
+  </div> 
+      <input type="hidden" name="room" id="selectedRoom" required />
+      <button type="submit">Book Now</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 Bruno's Hotel | Roblox Roleplay Paradise
+  </footer>
+
+  <script>
+    let selectedCard = null;
+    function selectRoom(card, roomName) {
+      if (selectedCard) selectedCard.classList.remove('selected');
+      card.classList.add('selected');
+      selectedCard = card;
+      document.getElementById("selectedRoom").value = roomName;
+    }
+
+    document.getElementById("bookingForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        name: form.name.value,
+        roblox: form.roblox.value,
+        room: form.room.value
+      };
+
+      const webhookURL = "https://discord.com/api/webhooks/1372945259394236517/fkEiaTJJ-3a_ohQiEUtpIj6JJ1pf8LqzXQmYaTW4HG7A5JbYEHi2-uPyNblwFittIF0p";
+
+      const payload = {
+        embeds: [{
+          title: "🛎️ New Hotel Booking",
+          color: 9578462,
+          fields: [
+            { name: "Name", value: data.name, inline: true },
+            { name: "Roblox", value: data.roblox, inline: true },
+            { name: "Room", value: data.room, inline: false }
+          ],
+          timestamp: new Date().toISOString()
+        }]
+      };
+
+      try {
+        await fetch(webhookURL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        alert("Booking Submitted ✅");
+        form.reset();
+        selectedCard?.classList.remove("selected");
+        document.getElementById("selectedRoom").value = "";
+      } catch (err) {
+        console.error("Error:", err);
+        alert("❌ Booking failed.");
+      }
+    });
+  </script>
+
+</body>
+</html>
